@@ -1,11 +1,18 @@
-drop schema if exists trading_platform;
+drop schema if exists ccca;
 
-create schema trading_platform;
+create schema ccca;
 
-create table trading_platform.account (
-    account_id  uuid primary key,
-    name  text,
+create table ccca.account (
+    account_id uuid primary key,
+    name text,
     email text,
     document text,
     password text
+);
+
+create table ccca.balance (
+	account_id uuid,
+	asset_id text,
+	quantity numeric,
+	primary key (account_id, asset_id)
 );
